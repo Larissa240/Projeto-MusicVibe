@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MusicVibe - Home</title>
+  <link rel="stylesheet" href="/stylesheets/style-home.css">
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <img src="/images/logo musicvibe branca.png" alt="MusicVibe" class="logo">
+    <input type="text" class="search-bar" placeholder="O que você quer ouvir?">
+  </header>
+
+  <div class="container">
+
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <h2 class="title"><img src="/images/musicvibe-logo.png" style="vertical-align: middle;">Suas Playlists</h2>
+
+      <input type="text" placeholder=" Pesquisar playlists..." class="search-playlist">
+      <div class="playlistfavorite">
+        <% if (playlists.length===0) { %>
+          <p>Parece que você não tem uma playlist criada ainda. Clique no botão abaixo para criar sua primeira!</p>
+          <% } else { %>
+            <ul class="playlist-list">
+              <% playlists.forEach(p=> { %>
+                <li><a href="/playlist/<%= p.id %>">
+                    <%= p.nome %>
+                  </a></li>
+                <% }) %>
+            </ul>
+            <% } %>
+      </div>
+
+      <form action="/playlist" method="POST">
+        <input type="text" name="nome" placeholder="Nome da playlist" required class="input-nome">
+        <div class="boton">
+          <button type="submit" class="btn-criar">Criar playlist</button>
+        </div>
+      </form>
+
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+
+      <section class="recomendados">
+        <div class="fundo1">
+          <h2 class="title1"><img src="/images/musicvibe-logo.png" style="vertical-align: middle;">Artistas Recomendados
+          </h2>
+          <div class="artistas">
+            <div><img src="/images/henrique-juliano.png">
+              <p>Henrique e Juliano</p>
+            </div>
+            <div><img src="/images/jorge-mateus.png">
+              <p>Jorge e Mateus</p>
+            </div>
+            <div><img src="/images/ze-neto.png">
+              <p>Zé Neto e Cristiano</p>
+            </div>
+            <div><img src="/images/luan-santana.png">
+              <p>Luan Santana</p>
+            </div>
+            <div><img src="/images/Coldplay.png">
+              <p>Coldplay</p>
+            </div>
+          </div>
+          <div>
+      </section>
+
+      <section class="recomendados">
+        <div class="fundo2">
+          <h2 class="title2"><img src="/images/musicvibe-logo.png" style="vertical-align: middle;"> Álbuns Recomendados
+          </h2>
+          <div class="albuns">
+            <div><img src="/images/white-noise.png">
+              <p>White Noise</p>
+            </div>
+            <div><img src="/images/caju.png">
+              <p>Caju</p>
+            </div>
+            <div><img src="/images/ceu-explica.png">
+              <p>O Céu Explica Tudo</p>
+            </div>
+            <div><img src="/images/hit-me.png">
+              <p>Hit Me</p>
+            </div>
+            <div><img src="/images/Asa branca-Luiz Gonzaga.png">
+              <p>Asa Branca</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lowbar">
+          <h2>Empresas</h2>
+          <h2 class="text">comunidades</h2>
+          <h2 class="text">Planos do MusicVibe</h2>
+        </div>
+
+        <div class="discribegeral">
+          <div class="discribe">
+            <p>Sobre</p>
+            <p class="subdiscribe">Para Artistas</p>
+            <p class="subdiscribe">Premium individual</p>
+
+          </div>
+
+          <div class="discribe1">
+            <p>Empregos</p>
+            <p class="S1">Desenvolvedore</p>
+            <p class="S2">Premium Duo</p>
+          </div>
+
+        </div>
+        <div class="descption">
+          <div class="desc1">
+            <p> Publicidade </p>
+            <p class="D1"> Premium Familia </p>
+          </div>
+          <div class="desc2">
+            <p> Investidores </p>
+            <p class="D2"> Premium Universitario </p>
+          </div>
+          <div class="desc3">
+            <p> Fornecedores </p>
+            <p class="D3"> Plano Free </p>
+          </div>
+        </div>
+
+
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+
+</html>

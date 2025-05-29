@@ -1,0 +1,109 @@
+body {
+  background-color: #121212;
+  font-family: 'Arial', sans-serif;
+  margin: 80px;
+  padding: 0;
+  color: white;
+}
+
+.player-container {
+  max-width: 360px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.banner-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: block;
+}
+
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-header h2 {
+  color: #7B34CD;
+  font-size: 1.3rem;
+  padding-left: 16px;
+}
+
+.banner-container {
+  position: relative;
+}
+
+.play-button {
+  position: absolute;
+  bottom: -27px; /* altura acima do fundo da imagem */
+  right: 20px;  /* distância da borda direita */
+  background-color: #912C73;
+  color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.music-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.music-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #333;
+  gap: 12px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.album-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.music-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.titulo {
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artista {
+  color: #aaa;
+  font-size: 0.75rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  color: #cc0a0a;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
