@@ -1,0 +1,17 @@
+<h1>Editar Música</h1>
+
+<form action="/admin/editarMusicas/<%= musica.id %>" method="POST">
+  <label>Título:</label><br>
+  <input type="text" name="titulo" value="<%= musica.titulo %>" required><br><br>
+
+  <label>Artista:</label><br>
+  <select name="artista_id" required>
+    <% artistas.forEach(artista => { %>
+      <option value="<%= artista.id %>" <%= artista.id === musica.artista_id ? "selected" : "" %>><%= artista.nome %></option>
+    <% }) %>
+  </select><br><br>
+
+  <button type="submit">Salvar</button>
+</form>
+
+<a href="/admin/listarMusicas">Voltar</a>

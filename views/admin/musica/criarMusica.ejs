@@ -1,0 +1,20 @@
+<h1>Criar Música</h1>
+
+<form action="/admin/criarMusicas" method="POST">
+  <label>Título:</label><br>
+  <input type="text" name="titulo" required><br><br>
+
+  <label>Artista:</label><br>
+  <select name="artista_id" required>
+    <option value="">Selecione um artista</option>
+    <% if (typeof artistas !== 'undefined') { %>
+      <% artistas.forEach(artista => { %>
+        <option value="<%= artista.id %>"><%= artista.nome %></option>
+      <% }) %>
+    <% } %>
+  </select><br><br>
+
+  <button type="submit">Criar</button>
+</form>
+
+<a href="/admin/listarMusicas">Voltar</a>

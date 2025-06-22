@@ -1,0 +1,23 @@
+<h1>Associar Música a Playlist</h1>
+
+<form action="/admin/associarPlaylistMusica" method="POST">
+  <label>Playlist:</label><br>
+  <select name="playlist_id" required>
+    <option value="">Selecione a playlist</option>
+    <% playlists.forEach(p => { %>
+      <option value="<%= p.id %>"><%= p.nome %></option>
+    <% }) %>
+  </select><br><br>
+
+  <label>Música:</label><br>
+  <select name="musica_id" required>
+    <option value="">Selecione a música</option>
+    <% musicas.forEach(m => { %>
+      <option value="<%= m.id %>"><%= m.titulo %> - <%= m.artista_nome || "Sem artista" %></option>
+    <% }) %>
+  </select><br><br>
+
+  <button type="submit">Associar</button>
+</form>
+
+<a href="/admin/listarPlaylists">Voltar para Playlists</a>

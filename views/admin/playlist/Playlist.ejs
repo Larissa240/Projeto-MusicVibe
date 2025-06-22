@@ -1,0 +1,15 @@
+<h1>Lista de Playlists</h1>
+
+<ul>
+  <% playlists.forEach(playlist => { %>
+    <li>
+      <%= playlist.nome %>
+      <form action="/admin/deletarPlaylists/<%= playlist.id %>" method="POST" style="display:inline;">
+        <button type="submit">Deletar</button>
+      </form>
+      <a href="/admin/editarPlaylists/<%= playlist.id %>">Editar</a>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/admin/criarPlaylists">Criar nova playlist</a>

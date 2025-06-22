@@ -1,0 +1,10 @@
+<h1>Editar Playlist</h1>
+
+<form action="/admin/editarPlaylists/<%= playlist.id %>" method="POST">
+  <label>Nome:</label><br>
+  <input type="text" name="nome" value="<%= playlist.nome %>" required><br><br>
+
+  <button type="submit">Salvar</button>
+</form>
+
+<a href="/admin/listarPlaylists">Voltar</a>
