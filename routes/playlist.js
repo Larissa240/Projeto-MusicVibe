@@ -27,12 +27,14 @@ router.post('/playlist', async (req, res) => {
 });
 
 // Mostrar playlist com músicas
+// Mostrar playlist com músicas (usando tabela de associação playlist_musica)
 router.get('/playlist/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
     const conexao = await banco.conectarBD();
 
+    // Buscar a playlist
     const [playlists] = await conexao.query(
       'SELECT * FROM playlists WHERE id = ?',
       [id]
@@ -44,8 +46,13 @@ router.get('/playlist/:id', async (req, res) => {
 
     const playlist = playlists[0];
 
+    // Buscar músicas associadas à playlist
     const [musicas] = await conexao.query(
-      'SELECT * FROM musicas WHERE playlist_id = ?',
+      `SELECT m.id, m.titulo, a.nome AS artista
+       FROM playlist_musica pm
+       JOIN musicas m ON pm.musica_id = m.id
+       LEFT JOIN artista a ON m.artista_id = a.id
+       WHERE pm.playlist_id = ?`,
       [id]
     );
 
