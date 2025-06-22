@@ -1,19 +1,35 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
-const conexao = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'musicvibe'
-});
+let conexao;
 
-conexao.connect((erro) => {
-  if (erro) {
-    console.error('Erro ao conectar no banco:', erro);
-    return;
-  }
-  console.log('Conectado ao banco MySQL!');
-});
+async function conectarBD() {
+  if (conexao) return conexao;
 
+  conexao = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'musicvibe',
+  });
 
-module.exports = conexao;
+  console.log('Conectado ao banco MySQL com sucesso!');
+  return conexao;
+}
+
+async function buscarPlaylists() {
+  const conex = await conectarBD();
+  const [rows] = await conex.query('SELECT * FROM playlists');
+  return rows;
+}
+
+async function buscarMusicasPorPlaylist(idPlaylist) {
+  const conex = await conectarBD();
+  const [rows] = await conex.query('SELECT * FROM musicas WHERE playlist_id = ?', [idPlaylist]);
+  return rows;
+}
+
+module.exports = {
+  conectarBD,
+  buscarPlaylists,
+  buscarMusicasPorPlaylist,
+};

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../banco');
+const { conectarBD } = require('../banco'); // Importar corretamente
 const bcrypt = require('bcrypt');
 
 // Página de cadastro
@@ -11,41 +11,55 @@ router.get('/cadastro', (req, res) => {
 // Salvar cadastro
 router.post('/cadastro', async (req, res) => {
   const { email, senha } = req.body;
-  const hash = await bcrypt.hash(senha, 10);
+  try {
+    const hash = await bcrypt.hash(senha, 10);
+    const conexao = await conectarBD(); // PEGAR a conexão corretamente
 
-  db.query('INSERT INTO usuarios (email, senha) VALUES (?, ?)', [email, hash], (err) => {
-    if (err) {
-      console.error(err);
-      return res.send('Erro ao cadastrar');
-    }
+    await conexao.query(
+      'INSERT INTO usuarios (email, senha) VALUES (?, ?)',
+      [email, hash]
+    );
+
     res.redirect('/login');
-  });
+  } catch (error) {
+    console.error(error);
+    res.send('Erro ao cadastrar');
+  }
 });
 
-// Página de login
+// Página de login (exibe form)
 router.get('/login', (req, res) => {
   res.render('login');
 });
 
 // Autenticar login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, senha } = req.body;
 
-  db.query('SELECT * FROM usuarios WHERE email = ?', [email], async (err, results) => {
-    if (err || results.length === 0) {
+  try {
+    const conexao = await conectarBD();
+
+    const [results] = await conexao.query(
+      'SELECT * FROM usuarios WHERE email = ?',
+      [email]
+    );
+
+    if (results.length === 0) {
       return res.send('Email não encontrado');
     }
 
     const usuario = results[0];
-
     const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
+
     if (senhaCorreta) {
-      res.send('Login bem-sucedido!');
+      return res.redirect('/home'); // Redireciona para /home
     } else {
-      res.send('Senha incorreta');
+      return res.send('Senha incorreta');
     }
-  });
+  } catch (error) {
+    console.error(error);
+    res.send('Erro no servidor');
+  }
 });
 
 module.exports = router;
-
