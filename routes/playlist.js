@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/playlist', (req, res) => {
+router.get('/playlist/coldplay', (req, res) => {
   const musicas = [
     { titulo: 'AFTER HOURS', artista: 'The Weeknd', imagem: '/images/the-weenked-afterhours.png' },
     { titulo: 'Asa Branca', artista: 'Luiz Gonzaga', imagem: '/images/asa-branca-luiz-gonzaga.png' },

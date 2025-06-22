@@ -4,9 +4,10 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const conexao = require('./banco');
 const usersRouter = require('./routes/users');
-const playlistRoutes = require('./routes/playlist');
+const playlistRouter = require('./routes/playlist');
 
-app.use('/', playlistRoutes);
+
+app.use('/', playlistRouter);
 
 
 // Middlewares para corpo da requisição

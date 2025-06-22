@@ -1,0 +1,104 @@
+body.sertanejo-body {
+  background-color: #0e0e0e;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sertanejo-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.top-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.playlist-title {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.play-button-green {
+  background-color: #1fdf64;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.banner-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.sertanejo-banner {
+  width: 200px;
+  border-radius: 8px;
+}
+
+.descricao {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.sertanejo-musicas {
+  list-style: none;
+  padding: 0;
+}
+
+.musica-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.capa-musica {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.musica-dados {
+  flex-grow: 1;
+}
+
+.titulo {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.ao-vivo {
+  color: #aaa;
+}
+
+.artista {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mais-opcoes {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}

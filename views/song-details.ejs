@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Música</title>
+    <link rel="stylesheet" href="/stylesheets/style-sons.css">
+</head>
+<body>
+    <div class="song-details-container">
+        <img class="album-cover" src="<%= song.coverUrl %>" alt="Capa do Álbum">
+        <h3><%= song.title %></h3>
+        <p><strong><%= song.artist %></strong></p>
+
+        <ul class="options-list">
+            <li><i class="icon">🎵</i> Adicionar à playlist</li>
+            <li><i class="icon">🚫</i> Ocultar a música</li>
+            <li><i class="icon">🔗</i> Compartilhar</li>
+            <li><i class="icon">📀</i> Ver o álbum</li>
+        </ul>
+
+        <button class="close-btn">Fechar</button>
+    </div>
+</body>
+</html>

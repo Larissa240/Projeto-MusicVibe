@@ -1,88 +1,212 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   background-color: #000;
   color: white;
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Barra superior da tela*/
 .top-bar {
   display: flex;
   align-items: center;
   padding: 1rem;
-  background-color: #1a1a1a;
+  background-color: #000000;
 }
 
 .logo {
   height: 60px;
   margin-right: 1.3rem;
-  
 }
 
 .search-bar {
-  flex: 1;
   padding: 0.5rem;
   background: #1f1f1f;
   border: 1px solid #8a2be2;
   border-radius: 20px;
   color: white;
+  width: 250px;
+  height: 28px;
 }
 
+/* Tela Principal*/
+
 .container {
+  height: 90vh;
+  width: 100vw;
   display: flex;
 }
 
 .sidebar {
-  width: 250px;
-  padding: 1rem;
-  background-color: #14001a;
+  align-items: center;
+  height: 52rem;
+  width: 22rem;
+  padding: 1rem 2rem 2rem 2rem;
+  background-color: #000000;
 }
 
-.sidebar input,
-.sidebar button {
-  width: 100%;
-  margin-top: 0.5rem;
+.search-playlist {
+  border-radius: 20px;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #8a2be2;
+  padding: 1rem 1rem;
+  height: 18px;
+  width: 10rem;
+  font-size: 12px;
+}
+
+.playlistfavorite {
+  padding: 1rem 1rem;
+}
+
+.boton {
+  padding: 5px 0rem;
+
 }
 
 .input-nome {
-  padding: 0.5rem;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #8a2be2;
+  height: 28px;
   border-radius: 4px;
-  border: none;
+  font-size: 14px;
 }
 
 .btn-criar {
-  padding: 0.5rem;
-  background-color: #6a1b9a;
+  width: 11rem;
+  background-color: #14001a;
   color: white;
-  border: none;
+  border: 1px solid #8a2be2;
   border-radius: 4px;
   margin-top: 0.5rem;
   cursor: pointer;
+  height: 37px;
 }
 
 .main-content {
-  flex: 1;
-  padding: 1rem;
+  background-color: #1b0133c5;
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 100rem;
+  height: 40rem;
+
 }
 
 .recomendados h2 {
   margin-top: 1rem;
+}
+
+.fundo1 {
+  margin-top: 1rem;
+  margin-left: 10rem;
+  background-color: #000000;
+  width: 80rem;
+  height: 18rem;
+}
+
+.fundo2 {
+  margin-top: 1rem;
+  margin-left: 10rem;
+  background-color: #000000;
+  width: 80rem;
+  height: 18rem;
+}
+
+.title1,
+.title2 {
   color: #b38aff;
+  padding: 1rem 2rem 0rem 0rem;
+
 }
 
-.artistas, .albuns {
+.artistas,
+.albuns {
+  margin-left: 10rem;
   display: flex;
-  gap: 1rem;
+  gap: 4rem;
   flex-wrap: wrap;
+  padding: 8px 2rem;
 }
 
-.artistas div, .albuns div {
-  text-align: center;
-}
-
-.artistas img, .albuns img {
-  width: 120px;
-  height: 120px;
+.artistas img,
+.albuns img {
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 10px #3a3a3a;
+
+}
+
+.artistas div,
+.albuns div {
+  text-align: center;
+}
+
+.lowbar {
+  padding: 5rem 0rem 0rem 15rem;
+  display: flex;
+}
+
+.text {
+  margin-left: 6rem;
+}
+
+.discribegeral {
+  font: 8;
+  padding: 1rem 0rem 0rem 15rem;
+}
+
+.discribe {
+  display: flex;
+}
+
+.subdiscribe {
+  margin-left: 10rem;
+}
+
+.discribe1 {
+  display: flex;
+}
+
+.S1 {
+  margin-left: 8.1rem;
+}
+
+.S2 {
+  margin-left: 8.35rem;
+}
+
+.descption {
+  margin-left: 27.45rem;
+}
+
+.desc1 {
+  display: flex;
+}
+
+.D1 {
+  margin-left: 10.4rem;
+}
+
+.desc2 {
+  display: flex;
+}
+
+.D2 {
+  margin-left: 10.2rem;
+}
+
+.desc3 {
+  display: flex;
+}
+
+.D3 {
+  margin-left: 9.5rem;
 }

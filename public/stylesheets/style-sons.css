@@ -1,0 +1,47 @@
+.song-details-container {
+    background-color: #121212;
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.album-cover {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.options-list li {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.options-list li:hover {
+    color: #1db954; /* verde Spotify */
+}
+
+.close-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+

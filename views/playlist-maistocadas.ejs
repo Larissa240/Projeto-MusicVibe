@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title><%= playlist.nome %></title>
+  <link rel="stylesheet" href="/stylesheets/style-maistocadas.css">
+</head>
+<body class="sertanejo-body">
+
+  <div class="sertanejo-container">
+
+    <div class="top-info">
+      <a href="/" class="back-button">←</a>
+      <h1 class="playlist-title"><%= playlist.nome %></h1>
+      <button class="play-button-green">▶</button>
+    </div>
+
+    <div class="banner-section">
+      <img src="<%= playlist.capa %>" alt="Capa Sertanejo" class="sertanejo-banner" />
+      <p class="descricao">Fique por dentro dos lançamentos das músicas que estão na boca da galera.</p>
+    </div>
+
+    <ul class="sertanejo-musicas">
+  <% playlist.musicas.forEach(musica => { %>
+    <li class="musica-item">
+      <a href="/song-details/<%= musica.id %>">
+        <img src="<%= musica.capa %>" class="capa-musica" />
+        <div class="musica-dados">
+          <p class="titulo"><%= musica.titulo %></p>
+          <p class="artista"><strong><%= musica.artista %></strong></p>
+        </div>
+      </a>
+      <button class="mais-opcoes">⋯</button>
+    </li>
+  <% }) %>
+</ul>
+
+  </div>
+
+</body>
+</html>
+
