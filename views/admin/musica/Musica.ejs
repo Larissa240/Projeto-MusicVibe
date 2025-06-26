@@ -1,0 +1,27 @@
+<h1>Lista de Músicas</h1>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Artista</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% musicas.forEach(musica => { %>
+      <tr>
+        <td><%= musica.titulo %></td>
+        <td><%= musica.artista_nome || 'Sem artista' %></td>
+        <td>
+          <form action="/admin/deletarMusicas/<%= musica.id %>" method="POST" style="display:inline;">
+            <button type="submit">Deletar</button>
+          </form>
+          <a href="/admin/editarMusicas/<%= musica.id %>">Editar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="/admin/criarMusicas">Criar nova música</a>

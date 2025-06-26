@@ -5,38 +5,24 @@ router.get('/login', (req, res) => {
     res.render('login', { mensagemErro: null });
 });
 
+// Autenticar login
 router.post('/login', (req, res) => {
-    const { email, senha } = req.body;
+  const { email, senha } = req.body;
 
-    const usuarioFixo = {
-        email: 'usuario@teste.com',
-        senha: '123456'
-    };
+  db.query('SELECT * FROM usuarios WHERE email = ?', [email], async (err, results) => {
+    if (err || results.length === 0) {
+      return res.send('Email não encontrado');
+    }
 
-    if (email === usuarioFixo.email && senha === usuarioFixo.senha) {
-        return res.redirect('/home');
+    const usuario = results[0];
+
+    const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
+    if (senhaCorreta) {
+      res.send('Login bem-sucedido!');
     } else {
-        return res.render('login', { mensagemErro: 'Credenciais inválidas' });
+      res.send('Senha incorreta');
     }
-});
-
-router.get('/cadastro', (req, res) => {
-    res.render('cadastro', { mensagemErro: null });
-});
-
-router.post('/cadastro', (req, res) => {
-    const { email, senha } = req.body;
-
-    if (!email || !senha) {
-        return res.render('cadastro', { mensagemErro: 'Todos os campos são obrigatórios' });
-    }
-
-    if (!email.includes('@')) {
-        return res.render('cadastro', { mensagemErro: 'Email inválido' });
-    }
-
-    // Simula sucesso de cadastro
-    res.redirect('/login');
+  });
 });
 
 module.exports = router;

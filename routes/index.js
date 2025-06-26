@@ -1,30 +1,28 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const { conectarBD } = require('../banco'); // Importar corretamente
 
-router.get('/home', function(req, res) {
-  res.render('home');
+// Redireciona para login ao acessar a raiz
+router.get("/", (req, res) => {
+  res.redirect("/login");
 });
 
-router.get('/login', (req, res) => {
-  res.render('login');
-});
+// Página inicial (após login)
+router.get("/home", async (req, res) => {
+  try {
+    const conexao = await conectarBD();
+    const [playlists] = await conexao.query("SELECT * FROM playlists");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.post('/login', (req, res) => {
-  const { email, senha } = req.body;
-
-  // Simulação simples de login
-  if (email === 'teste@email.com' && senha === '1234') {
-    res.status(200).send('Login realizado com sucesso!');
-  } else {
-    res.status(401).send('Email ou senha inválidos');
+    res.render("home", { playlists });
+  } catch (err) {
+    console.error(err);
+    res.send("Erro ao carregar playlists.");
   }
 });
 
-
+// Exibe formulário de login
+router.get("/login", (req, res) => {
+  res.render("login");
+});
 
 module.exports = router;
