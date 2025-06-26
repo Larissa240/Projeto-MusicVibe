@@ -1,0 +1,13 @@
+<h1>Lista de Artistas</h1>
+<ul>
+  <% artistas.forEach(artista => { %>
+    <li>
+      <%= artista.nome %>
+      <form action="/admin/deletar/<%= artista.id %>" method="POST" style="display:inline;">
+        <button type="submit">Deletar</button>
+      </form>
+      <a href="/admin/editar/<%= artista.id %>">Atualizar</a>
+    </li>
+  <% }) %>
+</ul>
+<a href="/admin/criar">Criar novo artista</a>
