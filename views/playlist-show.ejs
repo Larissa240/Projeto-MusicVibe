@@ -2,38 +2,56 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Minha Playlist</title>
+  <title><%= playlist.nome %> - Minha Playlist</title>
   <link rel="stylesheet" href="/stylesheets/style-playlist.css" />
 </head>
 <body>
 
-<div class="player-container">
-  <div class="banner-container">
-    <img src="/images/coldplay.png" class="banner-img" alt="Coldplay">
-    <button class="play-button">▶</button>
+  <div class="player-container">
+    <div class="banner-container">
+       <img src="<%= playlist.imagemCapa || '/images/Coldplay.png' %>" class="banner-img" alt="Imagem da playlist">
+
+      <button type="button" class="play-button" aria-label="Tocar playlist">▶</button>
+    </div>
+
+    
+    <div class="playlist-header">
+      <h2><%= playlist.nome %></h2>
+    </div>
+
+  
+    <ul class="music-list">
+      <% if (musicas.length === 0) { %>
+        <li>Nenhuma música nesta playlist.</li>
+      <% } else { %>
+        <% musicas.forEach(musica => { %>
+          <li class="music-item">
+            <img src="<%= musica.imagem || '/images/gustavolima.png' %>" 
+                 class="album-cover" 
+                 alt="Capa do álbum da música <%= musica.titulo %>">
+            <div class="music-info">
+              <p class="titulo"><%= musica.titulo %></p>
+              <p class="artista"><%= musica.artista || 'Artista Desconhecido' %></p>
+            </div>
+            <button type="button" class="like-button" aria-label="Curtir música <%= musica.titulo %>">🤍</button>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
   </div>
 
-  <div class="playlist-header">
-  <h2><%= playlist.nome %></h2>
-</div>
 
-<ul class="music-list">
-  <% if (musicas.length === 0) { %>
-    <li>Nenhuma música nesta playlist.</li>
-  <% } else { %>
-    <% musicas.forEach(musica => { %>
-      <li class="music-item">
-        <img src="/images/default-album.png" class="album-cover" alt="Capa">
-        <div class="music-info">
-          <p class="titulo"><%= musica.titulo %></p>
-          <p class="artista"><%= musica.artista || 'Artista Desconhecido' %></p>
-        </div>
-        <button class="like-button">🤍</button>
-      </li>
-    <% }) %>
-  <% } %>
-</ul>
+  
+   
+      
+    </div>
 
+</body>
+</html>
+
+
+
+  
 
 
 

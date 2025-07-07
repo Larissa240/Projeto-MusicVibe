@@ -2,6 +2,13 @@ const mysql = require('mysql2/promise');
 
 let conexao;
 
+async function buscarUsuarioPorEmail(email) {
+  const conex = await conectarBD();
+  const [rows] = await conex.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+  return rows[0];
+}
+
+
 async function conectarBD() {
   if (conexao) return conexao;
 
@@ -32,4 +39,5 @@ module.exports = {
   conectarBD,
   buscarPlaylists,
   buscarMusicasPorPlaylist,
+  buscarUsuarioPorEmail
 };

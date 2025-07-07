@@ -7,6 +7,7 @@ router.get("/", (req, res) => {
   res.redirect("/login");
 });
 
+
 // Página inicial (após login)
 router.get("/home", async (req, res) => {
   try {

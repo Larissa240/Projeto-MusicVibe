@@ -4,3 +4,10 @@
   <button type="submit">Criar</button>
 </form>
 
+<form method="POST" action="/playlist/<%= playlist.id %>/musicas">
+  <input type="text" name="titulo" placeholder="Título da música" required>
+  <input type="text" name="artista" placeholder="Artista" required>
+  <input type="text" name="imagem" placeholder="URL da imagem"> <!-- este campo novo -->
+  <button type="submit">Adicionar Música</button>
+</form>
+

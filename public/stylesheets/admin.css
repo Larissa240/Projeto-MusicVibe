@@ -1,0 +1,78 @@
+/* Tema escuro com responsividade */
+body.dark {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.admin-container {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+.admin-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  width: 190px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.admin-container h1 {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+.admin-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-links li {
+  margin: 14px 0;
+}
+
+.admin-links a {
+  text-decoration: none;
+  color: #90caf9;
+  font-size: 18px;
+  padding: 10px 22px;
+  border: 2px solid #90caf9;
+  border-radius: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.admin-links a:hover {
+  background-color: #90caf9;
+  color: #121212;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .admin-container {
+    padding: 20px;
+  }
+
+  .admin-links a {
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+}

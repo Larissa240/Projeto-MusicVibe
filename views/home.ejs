@@ -11,7 +11,11 @@
 
   <header class="top-bar">
     <img src="/images/logo musicvibe branca.png" alt="MusicVibe" class="logo">
-    <input type="text" class="search-bar" placeholder="O que você quer ouvir?">
+
+    <form action="/buscar" method="GET" class="search-form">
+  <input type="text" name="q" class="search-bar" placeholder="O que você quer ouvir?" />
+     </form>
+
   </header>
 
   <div class="container">
@@ -64,9 +68,15 @@
             <div><img src="/images/luan-santana.png">
               <p>Luan Santana</p>
             </div>
-            <div><img src="/images/Coldplay.png">
-              <p>Coldplay</p>
+
+            <div>
+              <a href="/player">
+  <img src="/images/coldplay.png" alt="Coldplay" >
+</a>
+<p style="text-align: center; color: white;">Coldplay</p>
+
             </div>
+
           </div>
           <div>
       </section>
@@ -76,23 +86,38 @@
           <h2 class="title2"><img src="/images/musicvibe-logo.png" style="vertical-align: middle;"> Álbuns Recomendados
           </h2>
           <div class="albuns">
-            <div><img src="/images/white-noise.png">
-              <p>White Noise</p>
-            </div>
-            <div><img src="/images/caju.png">
-              <p>Caju</p>
-            </div>
-            <div><img src="/images/ceu-explica.png">
-              <p>O Céu Explica Tudo</p>
-            </div>
-            <div><img src="/images/hit-me.png">
-              <p>Hit Me</p>
-            </div>
-            <div><img src="/images/asa-branca-luiz-gonzaga.png">
-              <p>Asa Branca</p>
-            </div>
-          </div>
-        </div>
+       <div>
+    <a href="/player/white-noise">
+      <img src="/images/white-noise.png" alt="White Noise">
+      <p>White Noise</p>
+       </a>
+      </div>
+       <div>
+      <a href="/player/caju">
+      <img src="/images/caju.png" alt="Caju">
+      <p>Caju</p>
+       </a>
+     </div>
+     <div>
+      <a href="/player/o-ceu-explica-tudo">
+      <img src="/images/ceu-explica.png" alt="O Céu Explica Tudo">
+      <p>O Céu Explica Tudo</p>
+       </a>
+      </div>
+      <div>
+      <a href="/player/hit-me">
+      <img src="/images/hit-me.png" alt="Hit Me">
+      <p>Hit Me</p>
+      </a>
+     </div>
+      <div>
+    <a href="/player/asa-branca">
+      <img src="/images/asa-branca-luiz-gonzaga.png" alt="Asa Branca">
+      <p>Asa Branca</p>
+      </a>
+     </div>
+     </div>
+
 
         <div class="lowbar">
           <h2>Empresas</h2>

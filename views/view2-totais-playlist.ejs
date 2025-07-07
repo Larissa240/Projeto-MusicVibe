@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists e Total de Músicas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #333; color: #eee; }
+        h1 { color: #00bcd4; }
+        table { width: 50%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #555; padding: 8px; text-align: left; }
+        th { background-color: #444; color: #fff; }
+        tr:nth-child(even) { background-color: #3a3a3a; }
+        tr:hover { background-color: #555; }
+        .no-data { color: #ffeb3b; }
+    </style>
+</head>
+<body>
+    <h1>View 2: Playlists e Total de Músicas</h1>
+
+    <% if (playlistsTotais && playlistsTotais.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID da Playlist</th>
+                    <th>Nome da Playlist</th>
+                    <th>Total de Músicas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% playlistsTotais.forEach(function(playlist) { %>
+                    <tr>
+                        <td><%= playlist.id %></td>
+                        <td><%= playlist.nome_playlist %></td>
+                        <td><%= playlist.total_musicas %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p class="no-data">Nenhuma playlist encontrada ou sem músicas.</p>
+    <% } %>
+</body>
+</html>

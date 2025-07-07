@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Completos das Músicas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #333; color: #eee; }
+        h1 { color: #00bcd4; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #555; padding: 8px; text-align: left; }
+        th { background-color: #444; color: #fff; }
+        tr:nth-child(even) { background-color: #3a3a3a; }
+        tr:hover { background-color: #555; }
+        .no-data { color: #ffeb3b; }
+    </style>
+</head>
+<body>
+    <h1>View 1: Detalhes Completos das Músicas</h1>
+
+    <% if (detalhesMusicas && detalhesMusicas.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID da Música</th>
+                    <th>Título da Música</th>
+                    <th>Nome do Artista</th>
+                    <th>Nome da Playlist</th>
+                    <th>Favorita</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% detalhesMusicas.forEach(function(musica) { %>
+                    <tr>
+                        <td><%= musica.musica_id %></td>
+                        <td><%= musica.titulo_musica %></td>
+                        <td><%= musica.nome_artista %></td>
+                        <td><%= musica.nome_playlist || 'N/A' %></td>
+                        <td><%= musica.favorita ? 'Sim' : 'Não' %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p class="no-data">Nenhum detalhe de música encontrado.</p>
+    <% } %>
+</body>
+</html>
